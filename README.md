@@ -142,7 +142,7 @@ module.exports = {
     },
     /**
      * @param {Client} client
-     * @param {CommandInteraction} interaction
+     * @param {CommandInteraction} interaction // Replace CommandInteraction with ContextMenuInteraction for context menus
      */
     run: async (client, interaction) => {
 
