@@ -26,7 +26,6 @@
             "\taliases: [],",
             "\tusage: \"\",",
             "\tdescription: \"\",",
-            "\tcooldown: 0,",
             "\tbotPermissions: [],",
             "\tuserPermissions: [],",
             "\tvoiceChannel: false,",

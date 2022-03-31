@@ -4,7 +4,6 @@ module.exports = {
     aliases: ["pong"],
     usage: "",
     description: "Ping the bot",
-    cooldown: 5,
     botPermissions: [],
     userPermissions: [],
     voiceChannel: false,
