@@ -1,4 +1,4 @@
-const { Client, CommandInteraction, MessageEmbed } = require("discord.js");
+const { Client, ContextMenuInteraction, MessageEmbed } = require("discord.js");
 const moment = require("moment");
 
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
     },
     /**
      * @param {Client} client
-     * @param {CommandInteraction} interaction
+     * @param {ContextMenuInteraction} interaction
      */
     run: async (client, interaction) => {
         await interaction.deferReply({ ephemeral: false });
