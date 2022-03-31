@@ -186,3 +186,6 @@ Channel types:
 | GUILD_PUBLIC_THREAD | 11 | a temporary sub-channel within a GUILD_TEXT channel |
 | GUILD_PRIVATE_THREAD | 12 | a temporary sub-channel within a GUILD_TEXT channel that is only viewable by those invited and those with the MANAGE_THREADS permission |
 | GUILD_STAGE_VOICE | 13 | a voice channel for hosting events with an audience 
+
+> This template is from my private discord bot (Jelly) I made for my own use.
+> I just took the code from my own bot and made it into a template.
