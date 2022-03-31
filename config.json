@@ -1,0 +1,19 @@
+{
+    "prefix": "!",
+    "ownerID": "",
+    "color": "#2B8BFF",
+    "guildID": "",
+    "global": true,
+    "category": {
+        "information": "ℹ",
+        "music": "🎵",
+        "owner": "👑"
+    },
+    "status": [
+        {
+            "status": "dnd",
+            "activity": "you",
+            "type": "WATCHING"
+        }
+    ]
+}
