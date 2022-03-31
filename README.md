@@ -9,7 +9,7 @@
 - Create a new application
 - Add a bot
 - Get the token
-- Add the token to the .env file
+- Add the token to the .env file as the "TOKEN" variable
 
 ## Visual Studio Code Snippets
 
