@@ -1,16 +1,15 @@
 const { Client, ContextMenuInteraction, MessageEmbed } = require("discord.js");
+const { ContextMenuCommandBuilder } = require("@discordjs/builders");
 
 module.exports = {
-    data: {
-        name: "avatar",
-        type: 2
-    },
+    data: new ContextMenuCommandBuilder()
+        .setName("avatar")
+        .setType(2),
     /**
      * @param {Client} client
      * @param {ContextMenuInteraction} interaction
      */
     run: async (client, interaction) => {
-        await interaction.deferReply({ ephemeral: false });
         const user = await client.users.fetch(interaction.targetId);
         const embed = new MessageEmbed()
             .setColor(client.config.color)

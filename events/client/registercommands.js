@@ -14,8 +14,7 @@ module.exports = {
         readdirSync("./slash_commands").forEach(dir => {
             const commands = readdirSync(`./slash_commands/${dir}/`).filter(file => file.endsWith(".js"));
             for (const file of commands) {
-                const command = require(`../../slash_commands/${dir}/${file}`);;
-                if (command.data.type === 2 || command.data.type === 3) delete command.data.description;
+                const command = require(`../../slash_commands/${dir}/${file}`);
                 slashCommands.push(command.data);
             }
         });

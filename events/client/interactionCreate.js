@@ -7,21 +7,16 @@ module.exports = {
      * @param {CommandInteraction} interaction 
      */
     run: async (client, interaction) => {
-        if (interaction.isCommand) {
+        if (interaction.isCommand()) {
             const command = client.slash_commands.get(interaction.commandName);
             if (!command) interaction.followUp("This command does not exist.");
-            if (command && command.data.type === 1) {
-                command.run(client, interaction);
-            }
+            command.run(client, interaction);
         }
-        if (interaction.isContextMenu) {
+        
+        if (interaction.isContextMenu()) {
             const command = client.slash_commands.get(interaction.commandName);
             if (!command) interaction.followUp("This command does not exist.");
-
-            if ((command.data.type === 2) || (command.data.type === 3)) {
-                command.run(client, interaction);
-            }
-            
+            command.run(client, interaction);
         }
     }
 };

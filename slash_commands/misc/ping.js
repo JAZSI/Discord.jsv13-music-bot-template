@@ -1,11 +1,10 @@
+const { SlashCommandBuilder } = require("@discordjs/builders");
 const { Client, CommandInteraction, MessageEmbed } = require("discord.js");
 
 module.exports = {
-    data: {
-        name: "ping",
-        description: "Get the bot's ping",
-        type: 1
-    },
+    data: new SlashCommandBuilder()
+        .setName("ping")
+        .setDescription("The ping of the bot."),
     /**
      * @param {Client} client
      * @param {CommandInteraction} interaction
