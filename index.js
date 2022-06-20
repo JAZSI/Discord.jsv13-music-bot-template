@@ -3,6 +3,7 @@ const { DisTube } = require("distube");
 const { SpotifyPlugin } = require("@distube/spotify");
 const { SoundCloudPlugin } = require("@distube/soundcloud");
 const { YtDlpPlugin } = require("@distube/yt-dlp");
+const express = require("express");
 const keepAlive = require("./keepalive");
 require("dotenv").config();
 
@@ -69,8 +70,7 @@ for (const handler of [
     "prefix_command", 
     "slash_command",
     "event", 
-    "distube",
-    "website"
+    "distube"
 ])require(`./handlers/${handler}`)(client);
 
 process.on("unhandledRejection", (error, promise) => {
@@ -83,4 +83,16 @@ if (!process.env.TOKEN) {
 }
 
 client.login(process.env.TOKEN);
+
 keepAlive(process.env.KEEPALIVE, "/");
+
+const port = process.env.PORT || 3000;
+const app = express();
+
+app.listen(port, () => {
+    console.log(`[ WEBSITE ] Website is running`);
+});
+
+app.get("/", (req, res) => {
+    res.send("Hello World!");
+});
