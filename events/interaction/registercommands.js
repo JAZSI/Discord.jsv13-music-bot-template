@@ -11,10 +11,10 @@ module.exports = {
     */
     run: async (client) => {
         const slashCommands = [];
-        readdirSync("./slash_commands").forEach(dir => {
-            const commands = readdirSync(`./slash_commands/${dir}/`).filter(file => file.endsWith(".js"));
+        readdirSync("./_slash_commands").forEach(dir => {
+            const commands = readdirSync(`./_slash_commands/${dir}/`).filter(file => file.endsWith(".js"));
             for (const file of commands) {
-                const command = require(`../../slash_commands/${dir}/${file}`);
+                const command = require(`../../_slash_commands/${dir}/${file}`);;
                 slashCommands.push(command.data);
             }
         });
@@ -23,7 +23,7 @@ module.exports = {
             version: "9"
         }).setToken(client.token);
 
-        if (client.config.global) {
+        if (process.env.NODE_ENV === "production") {
             await rest.put(Routes.applicationCommands(client.user.id), {
                 body: slashCommands
             })

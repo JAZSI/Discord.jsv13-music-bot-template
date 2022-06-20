@@ -12,7 +12,7 @@ module.exports = (client) => {
                 } else {
                     client.on(event.name, event.run.bind(null, client));
                 }
-                console.log(`[ EVENT ] Loaded event: ${eventName} (${event.name})`);
+                console.log(`[ EVENT ] Loaded event: ${eventName}`);
             }
         });
     } catch (error) {

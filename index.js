@@ -1,8 +1,9 @@
-const { Client, Intents, Collection, WebhookClient } = require("discord.js");
+const { Client, Intents, Collection } = require("discord.js");
 const { DisTube } = require("distube");
 const { SpotifyPlugin } = require("@distube/spotify");
 const { SoundCloudPlugin } = require("@distube/soundcloud");
 const { YtDlpPlugin } = require("@distube/yt-dlp");
+const keepAlive = require("./keepalive");
 require("dotenv").config();
 
 const client = new Client({ 
@@ -66,10 +67,11 @@ client.distube = new DisTube(client, {
 
 for (const handler of [
     "prefix_command", 
-    "slash_command", 
+    "slash_command",
     "event", 
-    "distube"
-]) require(`./handlers/${handler}`)(client);
+    "distube",
+    "website"
+])require(`./handlers/${handler}`)(client);
 
 process.on("unhandledRejection", (error, promise) => {
     console.error(`Unhandled rejection: ${error.message}`);
@@ -81,4 +83,4 @@ if (!process.env.TOKEN) {
 }
 
 client.login(process.env.TOKEN);
-
+keepAlive(process.env.KEEPALIVE, "/");
